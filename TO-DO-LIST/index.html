@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List Dark Mode</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="./script.js" defer=""></script>
+  <link rel="stylesheet" href="./style.css">
+  <script type="text/javascript" src="./script.js" defer=""></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Task List 📋</h2>
+    <input type="text" id="task" placeholder="Nova task...">
+    <button onclick="addTask()">Adicionar Task</button>
+    <ul id="taskList"></ul>
+    <h3 id="historyTitle" onclick="toggleHistory()" class="history-title">Histórico ✊</h3>
+    <ul id="historyList" class="hidden"></ul>
+    <button onclick="showConfirmationPopup()">Limpar Histórico</button>
+    <button onclick="exportHistory()">Exportar Histórico</button>
+    <footer>
+      <a href="https://github.com/GSSamazza" target="_blank" style="color: white; text-decoration: none;">
+        Developed by Giovane S Samazza 🚀
+      </a>
+    </footer>
+  </div>
+
+  <!-- Modal de Confirmação -->
+  <div id="confirmationPopup" class="hidden">
+    <div class="popup-content">
+      <p>As tasks do histórico serão apagadas permanentemente. Tem certeza que deseja limpar?</p>
+      <button onclick="clearHistory()">Sim</button>
+      <button onclick="hideConfirmationPopup()">Não</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

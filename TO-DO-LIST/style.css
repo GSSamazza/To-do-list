@@ -1,0 +1,139 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    flex-direction: column;
+}
+.container {
+    max-width: 400px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+input {
+    width: 90%;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+
+}
+
+
+button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+input {
+    background: #333;
+    color: #fff;
+}
+button {
+    background: #6200ea;
+    color: white;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+button:hover {
+    background: #333;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 12px;
+    transition: 0.5s;
+}
+
+footer:hover {
+    opacity: 0.5;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: #333;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.delete-btn {
+    background: green;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+.note {
+    width: 100%;
+    background: #222;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.hidden {
+    display: none;
+}
+.history-title {
+    display: block;
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #333;
+}
+
+
+.history-title:hover {
+    opacity: 0.5;
+}
+
+
+#confirmationPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Alterado de 'flex' para 'none' */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+  }
+  
+  .popup-content button {
+    margin: 5px;
+  }
