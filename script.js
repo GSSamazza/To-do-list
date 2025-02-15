@@ -118,3 +118,7 @@ function showConfirmationPopup() {
 function hideConfirmationPopup() {
     document.getElementById("confirmationPopup").style.display = "none";
 }
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}

@@ -12,6 +12,11 @@ body {
     padding: 20px;
     flex-direction: column;
 }
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
 .container {
     max-width: 400px;
     margin: auto;
@@ -26,9 +31,9 @@ input {
     padding: 10px;
     border: none;
     border-radius: 5px;
-
+    background: #333;
+    color: #fff;
 }
-
 
 button {
     width: 100%;
@@ -36,12 +41,6 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-}
-input {
-    background: #333;
-    color: #fff;
-}
-button {
     background: #6200ea;
     color: white;
     cursor: pointer;
@@ -61,10 +60,12 @@ footer {
 footer:hover {
     opacity: 0.5;
 }
+
 ul {
     list-style: none;
     padding: 0;
 }
+
 li {
     background: #333;
     padding: 10px;
@@ -75,6 +76,7 @@ li {
     align-items: center;
     flex-direction: column;
 }
+
 .delete-btn {
     background: green;
     color: white;
@@ -93,8 +95,8 @@ li {
     cursor: pointer;
     border-radius: 3px;
     margin-top: 5px;
-
 }
+
 .note {
     width: 100%;
     background: #222;
@@ -104,9 +106,11 @@ li {
     margin-top: 5px;
     border-radius: 5px;
 }
+
 .hidden {
     display: none;
 }
+
 .history-title {
     display: block;
     width: 50%;
@@ -120,11 +124,9 @@ li {
     transition: background-color 1s;
 }
 
-
 .history-title:hover {
     background: #6200ea;
 }
-
 
 #confirmationPopup {
     position: fixed;
@@ -136,16 +138,16 @@ li {
     display: none; /* Alterado de 'flex' para 'none' */
     justify-content: center;
     align-items: center;
-  }
-  
-  .popup-content {
+}
+
+.popup-content {
     background: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     color: white;
-  }
-  
-  .popup-content button {
+}
+
+.popup-content button {
     margin: 5px;
-  }
+}
