@@ -1,3 +1,9 @@
+document.getElementById("task").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
+
 function addTask() {
     let taskInput = document.getElementById("task");
     let taskValue = taskInput.value;
@@ -7,32 +13,12 @@ function addTask() {
     let li = document.createElement("li");
     let note = document.createElement("input");
     note.type = "text";
-    note.placeholder = "Adicione uma anotação... ✍️";
+    note.placeholder = "Adicione uma anotação...";
     note.classList.add("note");
     
     li.innerHTML = `<span>${taskValue}</span>`;
     li.appendChild(note);
-    li.innerHTML += ' <button class="delete-btn" onclick="completeTask(this)">✔</button>';
     
-    document.getElementById("taskList").appendChild(li);
-    taskInput.value = "";
-}
-
-function completeTask(button) {
-    let li = button.parentElement;
-    let undoButton = document.createElement("button");
-    undoButton.classList.add("restore-btn");
-    undoButton.innerText = "↩";
-    undoButton.onclick = function() {
-        undoTask(this);
-    };
-    li.appendChild(undoButton);
-    document.getElementById("historyList").appendChild(li);
-    button.remove();
-}
-
-function undoTask(button) {
-    let li = button.parentElement;
     let completeButton = document.createElement("button");
     completeButton.classList.add("delete-btn");
     completeButton.innerText = "✔";
@@ -40,13 +26,44 @@ function undoTask(button) {
         completeTask(this);
     };
     li.appendChild(completeButton);
+    
     document.getElementById("taskList").appendChild(li);
-    button.remove();
+    taskInput.value = "";
 }
 
+function completeTask(button) {
+    let li = button.parentElement;
+    button.remove();
+    
+    let undoButton = document.createElement("button");
+    undoButton.classList.add("restore-btn");
+    undoButton.innerText = "↩";
+    undoButton.onclick = function() {
+        undoTask(this);
+    };
+    li.appendChild(undoButton);
+    
+    document.getElementById("historyList").appendChild(li);
+}
+
+function undoTask(button) {
+    let li = button.parentElement;
+    button.remove();
+    
+    let completeButton = document.createElement("button");
+    completeButton.classList.add("delete-btn");
+    completeButton.innerText = "✔";
+    completeButton.onclick = function() {
+        completeTask(this);
+    };
+    li.appendChild(completeButton);
+    
+    document.getElementById("taskList").appendChild(li);
+}
 
 function clearHistory() {
     document.getElementById("historyList").innerHTML = "";
+    hideConfirmationPopup();
 }
 
 function toggleHistory() {
@@ -63,16 +80,31 @@ function toggleHistory() {
 }
 
 function exportHistory() {
+    let taskList = document.getElementById("taskList").children;
     let historyList = document.getElementById("historyList").children;
-    let historyText = "Histórico de Tarefas:\n";
-    
-    for (let item of historyList) {
-        let taskText = item.querySelector("span").innerText;
-        let noteText = item.querySelector(".note") ? item.querySelector(".note").value : "";
-        historyText += `- ${taskText} (Anotação: ${noteText})\n`;
+    let exportText = "Tasks em Aberto:\n";
+
+    for (let item of taskList) {
+        let taskSpan = item.querySelector("span");
+        let noteInput = item.querySelector(".note");
+        let taskText = taskSpan ? taskSpan.innerText : "Sem título";
+        let noteText = noteInput ? noteInput.value : "Sem anotação";
+
+        exportText += `- ${taskText} (Anotação: ${noteText})\n`;
     }
-    
-    let blob = new Blob([historyText], { type: "text/plain" });
+
+    exportText += "\nTasks Encerradas:\n";
+
+    for (let item of historyList) {
+        let taskSpan = item.querySelector("span");
+        let noteInput = item.querySelector(".note");
+        let taskText = taskSpan ? taskSpan.innerText : "Sem título";
+        let noteText = noteInput ? noteInput.value : "Sem anotação";
+
+        exportText += `- ${taskText} (Anotação: ${noteText})\n`;
+    }
+
+    let blob = new Blob([exportText], { type: "text/plain" });
     let a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "historico_tarefas.txt";
@@ -81,13 +113,8 @@ function exportHistory() {
 
 function showConfirmationPopup() {
     document.getElementById("confirmationPopup").style.display = "flex";
-  }
-  
-  function hideConfirmationPopup() {
+}
+
+function hideConfirmationPopup() {
     document.getElementById("confirmationPopup").style.display = "none";
-  }
-  
-  function clearHistory() {
-    document.getElementById("historyList").innerHTML = "";
-    hideConfirmationPopup();
-  }
+}
