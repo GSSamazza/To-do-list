@@ -151,3 +151,31 @@ li {
 .popup-content button {
     margin: 5px;
 }
+
+.export-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.export-btn {
+  background: #6200ea;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 1s;
+  display: flex;
+  align-items: center;
+}
+
+.export-btn img.icon {
+  width: 50px; /* Ajuste a largura para 16px */
+  height: 50px; /* Ajuste a altura para 16px */
+  align-items: center;
+}
+
+.export-btn:hover {
+  background: #333;
+}

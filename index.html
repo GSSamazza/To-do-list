@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do List</title>
   <link rel="stylesheet" href="styles.css">
-  <script type="text/javascript" src="./script.js" defer=""></script>
-  <link rel="stylesheet" href="./style.css">
-  <script type="text/javascript" src="./script.js" defer=""></script>
-  <link rel="stylesheet" href="./style.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script type="text/javascript" src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div class="container">
@@ -19,7 +18,18 @@
     <h3 id="historyTitle" onclick="toggleHistory()" class="history-title">Histórico ✊</h3>
     <ul id="historyList" class="hidden"></ul>
     <button onclick="showConfirmationPopup()">Limpar Histórico</button>
-    <button onclick="exportHistory()">Exportar Histórico</button>
+    <div class="export-buttons">
+      <button class="export-btn" onclick="exportHistoryTXT()">
+        <img src="assets/txt.png" alt=".TXT Icon" class="icon"> 
+      </button>
+      <button class="export-btn" onclick="exportHistoryPDF()">
+        <img src="assets/ficheiro-pdf.png" alt=".PDF Icon" class="icon"> 
+      </button>
+      <button class="export-btn" onclick="exportHistoryCSV()">
+        <img src="assets/arquivo-xlsx.png" alt=".CSV Icon" class="icon"> 
+      </button>
+    </div>
+    
     <footer>
       <a href="https://github.com/GSSamazza" target="_blank" style="color: white; text-decoration: none;">
         Developed by Giovane S Samazza 🚀

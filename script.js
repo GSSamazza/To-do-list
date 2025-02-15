@@ -79,7 +79,7 @@ function toggleHistory() {
     }
 }
 
-function exportHistory() {
+function exportHistoryTXT() {
     let taskList = document.getElementById("taskList").children;
     let historyList = document.getElementById("historyList").children;
     let exportText = "Tasks em Aberto:\n";
@@ -111,14 +111,74 @@ function exportHistory() {
     a.click();
 }
 
+function exportHistoryPDF() {
+    let taskList = document.getElementById("taskList").children;
+    let historyList = document.getElementById("historyList").children;
+    let exportText = "Tasks em Aberto:\n";
+
+    for (let item of taskList) {
+        let taskSpan = item.querySelector("span");
+        let noteInput = item.querySelector(".note");
+        let taskText = taskSpan ? taskSpan.innerText : "Sem título";
+        let noteText = noteInput ? noteInput.value : "Sem anotação";
+
+        exportText += `- ${taskText} (Anotação: ${noteText})\n`;
+    }
+
+    exportText += "\nTasks Encerradas:\n";
+
+    for (let item of historyList) {
+        let taskSpan = item.querySelector("span");
+        let noteInput = item.querySelector(".note");
+        let taskText = taskSpan ? taskSpan.innerText : "Sem título";
+        let noteText = noteInput ? noteInput.value : "Sem anotação";
+
+        exportText += `- ${taskText} (Anotação: ${noteText})\n`;
+    }
+
+    // Usando jsPDF para criar o PDF
+    const { jsPDF } = window.jspdf;
+    let doc = new jsPDF();
+    doc.text(exportText, 10, 10);
+    doc.save("historico_tarefas.pdf");
+}
+
+function exportHistoryCSV() {
+    let taskList = document.getElementById("taskList").children;
+    let historyList = document.getElementById("historyList").children;
+    let exportText = "Tarefa,Anotação\n";
+
+    for (let item of taskList) {
+        let taskSpan = item.querySelector("span");
+        let noteInput = item.querySelector(".note");
+        let taskText = taskSpan ? taskSpan.innerText : "Sem título";
+        let noteText = noteInput ? noteInput.value : "Sem anotação";
+
+        exportText += `"${taskText}","${noteText}"\n`;
+    }
+
+    exportText += "\nTasks Encerradas:\n";
+
+    for (let item of historyList) {
+        let taskSpan = item.querySelector("span");
+        let noteInput = item.querySelector(".note");
+        let taskText = taskSpan ? taskSpan.innerText : "Sem título";
+        let noteText = noteInput ? noteInput.value : "Sem anotação";
+
+        exportText += `"${taskText}","${noteText}"\n`;
+    }
+
+    let blob = new Blob([exportText], { type: "text/csv" });
+    let a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "historico_tarefas.csv";
+    a.click();
+}
+
 function showConfirmationPopup() {
     document.getElementById("confirmationPopup").style.display = "flex";
 }
 
 function hideConfirmationPopup() {
     document.getElementById("confirmationPopup").style.display = "none";
-}
-
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
 }
