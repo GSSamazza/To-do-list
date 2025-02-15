@@ -20,9 +20,30 @@ function addTask() {
 
 function completeTask(button) {
     let li = button.parentElement;
+    let undoButton = document.createElement("button");
+    undoButton.classList.add("delete-btn");
+    undoButton.innerText = "↩";
+    undoButton.onclick = function() {
+        undoTask(this);
+    };
+    li.appendChild(undoButton);
     document.getElementById("historyList").appendChild(li);
     button.remove();
 }
+
+function undoTask(button) {
+    let li = button.parentElement;
+    let completeButton = document.createElement("button");
+    completeButton.classList.add("delete-btn");
+    completeButton.innerText = "✔";
+    completeButton.onclick = function() {
+        completeTask(this);
+    };
+    li.appendChild(completeButton);
+    document.getElementById("taskList").appendChild(li);
+    button.remove();
+}
+
 
 function clearHistory() {
     document.getElementById("historyList").innerHTML = "";

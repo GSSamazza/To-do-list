@@ -64,7 +64,6 @@ footer:hover {
 ul {
     list-style: none;
     padding: 0;
-    transition: 2s;
 }
 li {
     background: #333;
