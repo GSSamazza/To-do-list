@@ -10,22 +10,23 @@ body {
     color: #fff;
     text-align: center;
     padding: 20px;
-    flex-direction: column;
-}
-body.dark-mode {
+  }
+  
+  body.dark-mode {
     background-color: #1e1e1e;
     color: #ffffff;
-}
-
-.container {
+  }
+  
+  .container {
     max-width: 400px;
     margin: auto;
     background: #1e1e1e;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-input {
+  }
+  
+  input {
     width: 90%;
     margin: 5px 0;
     padding: 10px;
@@ -33,9 +34,9 @@ input {
     border-radius: 5px;
     background: #333;
     color: #fff;
-}
-
-button {
+  }
+  
+  button {
     width: 100%;
     margin: 5px 0;
     padding: 10px;
@@ -45,28 +46,28 @@ button {
     color: white;
     cursor: pointer;
     transition: background-color 1s;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     background: #333;
-}
-
-footer {
+  }
+  
+  footer {
     margin-top: 30px;
     font-size: 12px;
     transition: 0.5s;
-}
-
-footer:hover {
+  }
+  
+  footer:hover {
     opacity: 0.5;
-}
-
-ul {
+  }
+  
+  ul {
     list-style: none;
     padding: 0;
-}
-
-li {
+  }
+  
+  li {
     background: #333;
     padding: 10px;
     margin: 5px 0;
@@ -75,9 +76,9 @@ li {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-}
-
-.delete-btn {
+  }
+  
+  .delete-btn {
     background: green;
     color: white;
     padding: 5px 10px;
@@ -85,9 +86,9 @@ li {
     cursor: pointer;
     border-radius: 3px;
     margin-top: 5px;
-}
-
-.restore-btn {
+  }
+  
+  .restore-btn {
     background: orangered;
     color: white;
     padding: 5px 10px;
@@ -95,9 +96,9 @@ li {
     cursor: pointer;
     border-radius: 3px;
     margin-top: 5px;
-}
-
-.note {
+  }
+  
+  .note {
     width: 100%;
     background: #222;
     color: white;
@@ -105,13 +106,13 @@ li {
     padding: 5px;
     margin-top: 5px;
     border-radius: 5px;
-}
-
-.hidden {
+  }
+  
+  .hidden {
     display: none;
-}
-
-.history-title {
+  }
+  
+  .history-title {
     display: block;
     width: 50%;
     margin: 10px auto;
@@ -122,13 +123,13 @@ li {
     cursor: pointer;
     background: #333;
     transition: background-color 1s;
-}
-
-.history-title:hover {
+  }
+  
+  .history-title:hover {
     background: #6200ea;
-}
-
-#confirmationPopup {
+  }
+  
+  #confirmationPopup {
     position: fixed;
     top: 0;
     left: 0;
@@ -138,44 +139,44 @@ li {
     display: none; /* Alterado de 'flex' para 'none' */
     justify-content: center;
     align-items: center;
-}
-
-.popup-content {
+  }
+  
+  .popup-content {
     background: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     color: white;
-}
-
-.popup-content button {
+  }
+  
+  .popup-content button {
     margin: 5px;
-}
-
-.export-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.export-btn {
-  background: #6200ea;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px;
-  transition: background-color 1s;
-  display: flex;
-  align-items: center;
-}
-
-.export-btn img.icon {
-  width: 50px; /* Ajuste a largura para 16px */
-  height: 50px; /* Ajuste a altura para 16px */
-  align-items: center;
-}
-
-.export-btn:hover {
-  background: #333;
-}
+  }
+  
+  .export-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .export-btn {
+    background: #6200ea;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 1s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .export-btn img.icon {
+    width: 50px; /* Ajuste a largura para 50px */
+    height: 50px; /* Ajuste a altura para 50px */
+  }
+  
+  .export-btn:hover {
+    background: #333;
+  }
+  
