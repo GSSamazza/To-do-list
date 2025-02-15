@@ -21,7 +21,7 @@ function addTask() {
 function completeTask(button) {
     let li = button.parentElement;
     let undoButton = document.createElement("button");
-    undoButton.classList.add("delete-btn");
+    undoButton.classList.add("restore-btn");
     undoButton.innerText = "↩";
     undoButton.onclick = function() {
         undoTask(this);

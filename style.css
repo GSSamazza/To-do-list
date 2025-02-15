@@ -84,6 +84,17 @@ li {
     border-radius: 3px;
     margin-top: 5px;
 }
+
+.restore-btn {
+    background: orangered;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 5px;
+
+}
 .note {
     width: 100%;
     background: #222;
